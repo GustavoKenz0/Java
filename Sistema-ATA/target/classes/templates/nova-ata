@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Emitir Ata</title>
+</head>
+<body>
+<h1>Emitir Ata</h1>
+<form th:action="@{/atas/salvar}" th:object="${ata}" method="post">
+    <label>Início: <input type="text" th:field="*{inicio}" /></label><br/>
+    <label>Fim: <input type="text" th:field="*{fim}" /></label><br/>
+    <label>Setor: <input type="text" th:field="*{setor}" /></label><br/>
+    <label>Título: <input type="text" th:field="*{titulo}" /></label><br/>
+    <label>Pauta: <input type="text" th:field="*{pauta}" /></label><br/>
+    <label>Descrição: <input type="text" th:field="*{descricao}" /></label><br/>
+    <label>Tipo: 
+        <select th:field="*{tipo}">
+            <option th:each="tipo : ${tipos}" th:value="${tipo}" th:text="${tipo}">Tipo</option>
+        </select>
+    </label><br/>
+    <label>Palavras Chave: <input type="text" th:field="*{palavrasChave}" /></label><br/>
+    <button type="submit">Salvar</button>
+</form>
+</body>
+</html>
