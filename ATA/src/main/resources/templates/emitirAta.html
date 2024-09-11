@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" >
+	<title>Emitir Ata</title>
+</head>
+<body>
+	<form action="/salvar-ata" method="post">
+
+		<h1>Emitir ATA</h1>
+        <input type="text" name="inicio" placeholder="Início"/>
+        <input type="text" name="fim" placeholder="Fim"/>
+        <input type="text" name="setor" placeholder="Setor"/> <br>
+        
+        <h3>Titulo:</h3>
+        <input type="text" name="titulo" placeholder="Título"/> <br>
+        
+        <h3>Pauta:</h3>
+        <input type="text" name="pauta" placeholder="Pauta"/> <br>
+        
+        <h3>Descrição:</h3>
+        <textarea name="descricao" placeholder="Descrição"></textarea> <br>
+        
+        <h3>Tipo:</h3>
+        <select name="tipo">
+            <option value="Publica">Pública</option>
+            <option value="Privada">Privada</option>
+        </select> <br>
+        
+        <h2>Participantes</h2>
+        <input type="text" name="palavrasChave" placeholder="Palavras Chaves"/>
+        <!-- Adição de participantes -->
+        <div>
+            <input type="text" placeholder="Matrícula"/>
+            <input type="text" placeholder="Nome"/>
+            <button type="button">Incluir</button>
+        </div>
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>

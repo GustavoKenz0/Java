@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+<title>Exibir Ata</title>
+</head>
+<body>
+	<h2>Detalhes da Ata</h2>
+    <p><strong>Início:</strong> <span th:text="${ata.inicio}"></span></p>
+    <p><strong>Fim:</strong> <span th:text="${ata.fim}"></span></p>
+    <p><strong>Setor:</strong> <span th:text="${ata.setor}"></span></p>
+    <p><strong>Título:</strong> <span th:text="${ata.titulo}"></span></p>
+    <p><strong>Pauta:</strong> <span th:text="${ata.pauta}"></span></p>
+    <p><strong>Descrição:</strong> <span th:text="${ata.descricao}"></span></p>
+    <p><strong>Tipo:</strong> <span th:text="${ata.tipo}"></span></p>
+    <p><strong>Palavras Chaves:</strong> <span th:text="${ata.palavrasChave}"></span></p>
+    <!-- Lista de participantes -->
+</body>
+</html>
