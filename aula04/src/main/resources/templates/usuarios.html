@@ -19,7 +19,9 @@
 	      <th scope="col" th:text="${usuario.getEmail()}">E-mail</th>
 	      
 	      <th>
+	      <a th:href="@{/editarUsuario/{id} (id=${usuario.id})}">
 	      	<button class="btn btn-outline-secondary">Editar</button>
+	      	</a>
 	      </th>
 	      <th>
 	      <a th:href="@{/removerUsuario/{id} (id=${usuario.id})}"> <!-- remove o usuario -->

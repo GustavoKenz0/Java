@@ -13,8 +13,9 @@
     <div class="card border-primary position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-body-tertiary rounded" style="width: 30rem;">
   	<div class="card-body">
     <h1 class="text-center text-decoration-underline">Cadastro Usuario</h1>
-    <form action="" th:action="@{/salvarUsuario}" th:object="${usuario}" method="post">
+    <form action="#" th:action="@{/salvarUsuario}" th:object="${usuario}" method="post">
 		  <div class="mb-3">
+		  <input type="hidden" th:field="*{id}">
 		    <label for="nome" class="form-label">Nome</label>
 		    <input type="text" class="form-control" id="nome" th:field="*{nome}">
 		  </div>

@@ -2,6 +2,7 @@ package com.sesi.aula04.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -50,6 +51,21 @@ public class UsuarioController {
 	public String removerUsuario(@PathVariable int id) {
 		usuarioRepository.deleteById(id);
 		return "redirect:/usuarios";
+	}
+	
+	//editar 
+	@GetMapping("editarUsuario/{id}")
+	public String editarUsuario(@PathVariable int id, Model modelo) {
+		Optional<Usuario> usuarioOpt = usuarioRepository.findById(id);
+		if (usuarioOpt.isPresent()) {
+			modelo.addAttribute("usuario", usuarioOpt.get());
+			return "formulario";
+		}else {
+			return "redirect:/usuarios";
+		}
+			
+		
+		
 	}
 	
 }
