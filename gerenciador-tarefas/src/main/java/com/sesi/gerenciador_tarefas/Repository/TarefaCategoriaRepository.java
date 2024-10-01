@@ -1,4 +1,4 @@
-package com.sesi.gerenciador_tarefas;
+package com.sesi.gerenciador_tarefas.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

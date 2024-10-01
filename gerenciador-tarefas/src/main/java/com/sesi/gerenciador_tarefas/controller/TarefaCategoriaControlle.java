@@ -1,18 +1,22 @@
-package com.sesi.gerenciador_tarefas.controller;
+	package com.sesi.gerenciador_tarefas.controller;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
-import com.sesi.gerenciador_tarefas.TarefaCategoriaRepository;
+import com.sesi.gerenciador_tarefas.Repository.TarefaCategoriaRepository;
 import com.sesi.gerenciador_tarefas.model.TarefaCategoria;
 
 @Controller
 public class TarefaCategoriaControlle {
 
+	@Autowired
 	TarefaCategoriaRepository tarefaCategoriaRepository;
 	
 	@GetMapping("/listarCategoria")
@@ -29,10 +33,26 @@ public class TarefaCategoriaControlle {
 			modelo.addAttribute("categoria", categoriaOpt.get());
 			return "formularioTarefaCategoria";
 		}else {
-			return "redirect/:listarTarefaCategoria";
+			return "redirect:/listarCategoria";
 		}
-		
 	}
 	
+	@PostMapping("/salvarCategoria")
+	public String salvarCategoria(@ModelAttribute TarefaCategoria categoria) {
+		tarefaCategoriaRepository.save(categoria);
+		return "redirect:/listarCategoria";
+	}
+	
+	@GetMapping("/formularioTarefaCategoria")
+	public String mostrarFormulario(Model modelo) {
+		modelo.addAttribute("categoria", new TarefaCategoria());
+		return "formularioTarefaCategoria";
+	}
+	
+	@GetMapping("/excluirCategoria/{id}")
+	public String excluirCategoria(@PathVariable("id") int id) {
+		tarefaCategoriaRepository.deleteById(id);
+		return "redirect:/listarCategoria";
+	}
 	
 }
