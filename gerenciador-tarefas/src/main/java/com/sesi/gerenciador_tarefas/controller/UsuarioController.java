@@ -34,28 +34,28 @@ public class UsuarioController {
 		
 		if(usuarioOpt.isPresent()) {
 			modelo.addAttribute("usuario", usuarioOpt.get());
-			return "formularioTarefaCategoria";
+			return "formularioUsuario";
 		}else {
-			return "redirect:/listarCategoria";
+			return "redirect:/listarUsuario";
 		}
 	}
 	
 	@PostMapping("/salvarUsuario")
 	public String salvarCategoria(@ModelAttribute Usuario usuario) {
 		usuarioRepository.save(usuario);
-		return "redirect:/usuarios/listarUsuario";
+		return "redirect:/listarUsuario";
 	}
 	
 	@GetMapping("/formularioUsuario")
 	public String mostrarFormulario(Model modelo) {
 		modelo.addAttribute("usuario", new Usuario());
-		return "/usuarios/formularioUsuario";
+		return "formularioUsuario";
 	}
 	
 	@GetMapping("/excluirUsuario/{id}")
 	public String excluirUsuario(@PathVariable("id") int id) {
 		usuarioRepository.deleteById(id);
-		return "redirect:/usuarios/listarUsuario";
+		return "redirect:/listarUsuario";
 	}
 	
 }
