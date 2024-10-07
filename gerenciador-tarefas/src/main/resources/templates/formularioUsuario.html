@@ -11,7 +11,7 @@
   <div class="container">
     <h1>Formulario</h1>
     
-    <form th:action="@{salvarUsuario}" th:object="${usuario}" method="post">
+    <form th:action="@{/usuarios/salvarUsuario}" th:object="${usuario}" method="post">
     
     <input type="hidden" th:field="*{id}">
   <div class="mb-3">

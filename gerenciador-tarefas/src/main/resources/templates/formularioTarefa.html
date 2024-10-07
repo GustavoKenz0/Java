@@ -11,13 +11,55 @@
   <div class="container">
     <h1>Formulario</h1>
     
-    <form th:action="@{salvarCategoria}" th:object="${categoria}" method="post">
+    <form th:action="@{/tarefas/salvarTarefa}" th:object="${tarefa}" method="post">
     
     <input type="hidden" th:field="*{id}">
   <div class="mb-3">
-    <label for="nome" class="form-label">Nome</label>
-    <input type="text" class="form-control" id="nome" aria-describedby="Nome" th:field="*{nome}">
+    <label for="descricao" class="form-label">Descrição</label>
+    <input type="text" class="form-control" id="descricao" aria-describedby="Nome" th:field="*{descricao}">
     </div>
+    
+     <div class="mb-3">
+    <label for="dataEntrega" class="form-label">Data de Entrega</label>
+    <input type="date" class="form-control" id="dataEntrega" aria-describedby="Nome" th:field="*{dataEntrega}">
+    </div>
+    
+     <div class="mb-3">
+    <label for="usuario" class="form-label">Responsavel</label>
+   	<select id="usuario" th:field="*{usuario}" class="form-control">
+   		<option th:each="usuario : ${usuarios}"
+   				th:value="${usuario.id}"
+   				th:text="${usuario.nome}">Usuario</option>
+   	</select>
+    </div>
+    
+    <div class="mb-3">
+    <label for="categoria" class="form-label">Categoria</label>
+   	<select id="categoria" th:field="*{categoria}" class="form-control">
+   		<option th:each="categoria : ${categorias}"
+   				th:value="${categoria.id}"
+   				th:text="${categoria.nome}">Categoria</option>
+   	</select>
+   	</div>
+   				
+   	
+   	<div class="mb-3">
+    <label for="prioridade" class="form-label">Prioridade</label>
+   	<select id="prioridade" th:field="*{prioridade}" class="form-control">
+   		<option th:each="prioridadeEnum : ${T(com.sesi.gerenciador_tarefas.model.Prioridade).values()}"
+   				th:value="${prioridadeEnum}"
+   				th:text="${prioridadeEnum}">Prioridade</option>
+   	</select>			
+   	</div>
+   	
+   	<div class="mb-3">
+    <label for="status" class="form-label">Status</label>
+   	<select id="status" th:field="*{status}" class="form-control">
+   		<option th:each="statusEnum : ${T(com.sesi.gerenciador_tarefas.model.StatusTarefa).values()}"
+   				th:value="${statusEnum}"
+   				th:text="${statusEnum}">Status</option>
+   	</select>
+   	</div>
     
   <button type="submit" class="btn btn-primary">Enviar</button>
   

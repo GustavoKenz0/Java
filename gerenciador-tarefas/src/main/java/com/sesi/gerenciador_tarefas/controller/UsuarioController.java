@@ -43,7 +43,7 @@ public class UsuarioController {
 	@PostMapping("/salvarUsuario")
 	public String salvarCategoria(@ModelAttribute Usuario usuario) {
 		usuarioRepository.save(usuario);
-		return "redirect:/listarUsuario";
+		return "redirect:/usuarios/listarUsuario";
 	}
 	
 	@GetMapping("/formularioUsuario")
